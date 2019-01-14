@@ -6,6 +6,7 @@ import htsjdk.samtools.cram.common.Version;
 import htsjdk.samtools.cram.io.ExposedByteArrayOutputStream;
 import htsjdk.samtools.cram.structure.block.Block;
 import htsjdk.samtools.cram.structure.block.BlockContentType;
+import htsjdk.samtools.cram.structure.slice.Slice;
 import htsjdk.samtools.util.Log;
 
 import java.io.ByteArrayInputStream;

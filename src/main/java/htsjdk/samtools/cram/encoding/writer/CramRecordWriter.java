@@ -20,8 +20,8 @@ package htsjdk.samtools.cram.encoding.writer;
 import htsjdk.samtools.cram.encoding.readfeatures.*;
 import htsjdk.samtools.cram.io.BitOutputStream;
 import htsjdk.samtools.cram.structure.*;
+import htsjdk.samtools.cram.structure.slice.Slice;
 
-import java.io.IOException;
 import java.io.ByteArrayOutputStream;
 import java.nio.charset.Charset;
 import java.util.List;
