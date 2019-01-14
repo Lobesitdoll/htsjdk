@@ -99,16 +99,35 @@ public class TabixReaderTest extends HtsjdkTest {
         Assert.assertNotNull(iter);
         Assert.assertNull(iter.next());
 
-        iter=tabixReader.query("1",-1,Integer.MAX_VALUE);
+        iter = tabixReader.query("1", -1, Integer.MAX_VALUE);
         Assert.assertNotNull(iter);
         Assert.assertNull(iter.next());
 
-        iter=tabixReader.query("1",Integer.MAX_VALUE,-1);
+        iter = tabixReader.query("1", Integer.MAX_VALUE, -1);
         Assert.assertNotNull(iter);
+        Assert.assertNull(iter.next());
+
+        iter = tabixReader.query("1", Integer.MAX_VALUE, 0);
+        Assert.assertNotNull(iter);
+        Assert.assertNull(iter.next());
+
+        iter = tabixReader.query("1:100-1000");
+        Assert.assertNotNull(iter);
+        Assert.assertNotNull(iter.next());
         Assert.assertNull(iter.next());
 
         final int pos_snp_in_vcf_chr1=327;
-        
+
+        iter = tabixReader.query("1:" + pos_snp_in_vcf_chr1 + "-" + pos_snp_in_vcf_chr1);
+        Assert.assertNotNull(iter);
+        Assert.assertNotNull(iter.next());
+        Assert.assertNull(iter.next());
+
+        iter = tabixReader.query("1:" + pos_snp_in_vcf_chr1);
+        Assert.assertNotNull(iter);
+        Assert.assertNotNull(iter.next());
+        Assert.assertNull(iter.next());
+
         iter=tabixReader.query("1",pos_snp_in_vcf_chr1,pos_snp_in_vcf_chr1);
         Assert.assertNotNull(iter);
         Assert.assertNotNull(iter);
@@ -168,6 +187,5 @@ public class TabixReaderTest extends HtsjdkTest {
             nRecords++;
         }
         assertTrue(nRecords > 0);
-
     }
 }
